@@ -1,0 +1,16 @@
+streamlit
+Pillow
+opencv-python-headless
+PyMuPDF
+pdf2image
+pypdf
+python-docx
+reportlab
+img2pdf
+pytesseract
+easyocr
+deep-translator
+gTTS
+langdetect
+numpy
+pandas
