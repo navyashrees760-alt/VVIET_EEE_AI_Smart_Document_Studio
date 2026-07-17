@@ -4,6 +4,7 @@ import fitz
 import cv2
 import numpy as np
 import pytesseract
+import os
 from pypdf import PdfWriter, PdfReader
 from PIL import Image
 from reportlab.pdfgen import canvas
@@ -11,6 +12,10 @@ from reportlab.lib.pagesizes import letter
 from deep_translator import GoogleTranslator
 from langdetect import detect
 from gtts import gTTS
+
+# --- SYSTEM ENVIRONMENT PATH FIX FOR CLOUD DEPLOYMENT ---
+if os.path.exists("/usr/bin/tesseract"):
+    pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
 
 def convert_docx_to_txt(file_bytes):
     doc = docx.Document(io.BytesIO(file_bytes))
@@ -105,3 +110,4 @@ def text_to_speech(text, lang_code):
     audio_io = io.BytesIO()
     tts.write_to_fp(audio_io)
     return audio_io.getvalue()
+
